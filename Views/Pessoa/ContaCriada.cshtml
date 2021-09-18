@@ -1,0 +1,32 @@
+﻿
+@model BancoCunha.Models.Conta
+@{
+    ViewBag.Title = "Banco Cunha - Seja bem vindo";
+}
+
+<div>
+    <form method="Get">
+     
+        
+            <p>Parabéns  @Html.DisplayFor(modelItem => Model.Pessoa.NomePessoa), a sua conta foi criada com sucesso!</p>
+
+            <p>Segue abaixo os dados da sua conta</p>
+
+            <p><strong>Correntista:</strong> @Html.DisplayFor(modelItem => Model.Pessoa.NomePessoa)</p>
+
+            <p><strong>Agência:</strong>  @Html.DisplayFor(modelItem => Model.NumeroAgencia) </p>
+
+            <p><strong>Conta:</strong> @Html.DisplayFor(modelItem => Model.NumeroConta)</p>
+
+            <p><strong>Tipo de Conta:</strong> @Html.DisplayFor(modelItem => Model.Pessoa.TipoPessoa)</p>
+
+            <p><strong>Data de Abertura:</strong> @Html.DisplayFor(modelItem => Model.DataAbertura)</p>
+
+        
+
+        </form>
+</div>
+<p>Por favor, acesse a sua conta, usando o botão abaixo.</p>
+<a class="btn btn-primary" href="@Url.Action("Index", "Home")">
+    Continuar
+</a>

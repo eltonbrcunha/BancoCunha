@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Banco Cunha - Home";
+}
+
+
+    <div class="login-dark">
+        <form method="post">
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+            <div class="form-group"><input class="form-control" id="q" name="q" placeholder="Agência"></div>
+            <div class="form-group"><input class="form-control" id="y" name="y" placeholder="Conta"></div>
+            <div class="form-group">
+
+                <button class="btn btn-primary btn-block" type="submit" href="@Url.Action("Index", "Home")">
+                    Continuar
+                </button>
+
+            </div>
+
+            <!--<a href="#" class="forgot">Forgot your email or password?</a>
+        -->
+
+
+            <p>Não tem conta? Cadastre-se</p>
+
+            <a class="btn btn-primary" href="@Url.Action("AbrirConta", "Pessoa")">
+                Abrir conta
+            </a>
+
+
+        </form>
+    </div>
+
+
+@{
+    if (@TempData["Msg"] != null)
+    {
+        <script>
+
+            alert('@TempData["msg"]')
+        </script>
+
+    }
+}

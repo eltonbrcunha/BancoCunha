@@ -1,0 +1,78 @@
+﻿@model BancoCunha.Models.Pessoa
+@{
+    ViewBag.Title = "Abra sua conta";
+}
+<link rel="stylesheet" href="~/css/login.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<div class="login-dark">
+
+    <form method="post">
+        <h2 class="sr-only">Login Form</h2>
+
+        <h4>Abertura de Conta</h4>
+        <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
+        <div class="form-group">
+
+            <input asp-for="NomePessoa" class="form-control" placeholder="Nome Completo">
+
+        </div>
+
+        <div class="form-group">
+
+            <input asp-for="DocumentoPessoa" class="form-control" placeholder="Documento">
+
+        </div>
+
+        <div class="form-group">
+
+            <input asp-for="TipoPessoa" class="form-control" placeholder="P. Física">
+
+        </div>
+
+        <button class="btn btn-primary btn-block" type="submit" href="@Url.Action("AbrirConta", "Conta")">
+            Continuar
+        </button>
+
+    </form>
+
+
+</div>
+
+@{
+    if (@TempData["Msg"] != null)
+    {
+        <script>
+
+            alert('@TempData["msg"]')
+        </script>
+
+    }
+}
+@*<h2>Films</h2>
+    <table class="table">
+        <tr>
+            <th>Film ID</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Release Year</th>
+            <th>Length</th>
+            <th>Rating</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idbanco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.codbanco)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nomebanco)
+                </td>
+                     </tr>
+        }
+    </table>*@

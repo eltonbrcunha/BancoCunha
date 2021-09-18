@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BancoCunha.Models.Conta>
+
+@{
+    ViewData["Title"] = "Banco Cunha - Área do Cliente";
+}
+
+<link rel="stylesheet" href="~/css/cartao.css" />
+
+
+
+
+
+@foreach (var item in Model)
+{
+
+
+    <div class="login-dark">
+        <form>
+            <h2 class="sr-only">Login Form</h2>
+            <div class="illustration"><img src="~/img/avatarM2.png" width="100" /></div>
+
+            <p>
+                Olá @Html.DisplayFor(modelItem => item.Pessoa.NomePessoa)
+                <br /><strong>Agência:</strong> @Html.DisplayFor(modelItem => item.NumeroAgencia)  <br /> <strong>Conta:</strong> @Html.DisplayFor(modelItem => item.NumeroConta)<br />
+            </p>
+
+
+            <p><strong>Seu saldo disponível</strong> </p>
+            <h4>
+                R$@Html.DisplayFor(modelItem => item.SaldoPessoa.ValorSaldo)
+            </h4>
+
+
+            <div class="form-group">
+
+                <a class="btn btn-primary btn-block" type="submit" href="@Url.Action("MovimentacaoBancaria", "Home")">
+                    Fazer Transferência
+                </a>
+
+            </div>
+
+
+        </form>
+    </div>
+}
+
+
+
+
+
+
+
