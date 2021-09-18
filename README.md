@@ -35,7 +35,7 @@ A abstração do banco de dados se encontra na tabela <strong>Models</strong>, o
 adicional para reprodução do banco completo, com <strong>triggers e procedures </strong>
 
 <h2>Sobre a Tecnologia usada</h2>
-:white_check_mark: <strong>Linguagem: ASP.NET Core </strong> </br>
+:white_check_mark: <strong>Plataforma: ASP.NET Core </strong> </br>
 :white_check_mark: <strong>Banco de Dados: Mysql Server 8.0 </strong> </br>
 
 <h2>Conceitos Usados</h2>
