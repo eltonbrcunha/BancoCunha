@@ -16,36 +16,36 @@ namespace BancoCunha.Controllers
             _context = context;
         }
 
-        //Refatorado
+
         [Route("Pessoa/AbrirConta")]
         [HttpPost]
         public async Task<IActionResult> AbrirConta(Pessoa p)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 try
                 {
-                    //Pessoa
-                    var todoitem = new Pessoa
-                    {
-                        NomePessoa = p.NomePessoa,
-                        DocumentoPessoa = p.DocumentoPessoa,
-                        TipoPessoa = p.TipoPessoa,
 
-                    };
+                    var todoitem = new Pessoa
+                    (
+                         p.NomePessoa,
+                         p.DocumentoPessoa,
+                         p.TipoPessoa = "F"
+
+
+                    );
 
                     _context.Add(p);
                     await _context.SaveChangesAsync();
-                    //Pessoa
 
 
                     //Conta Bancária
                     var contaBancaria = new Conta
                     {
-                         NumeroConta = Convert.ToInt32(p.DocumentoPessoa.Substring(0,5)),
-                         DataAbertura = DateTime.Now,
-                         IdPessoa = p.IdPessoa,
-                         NumeroAgencia ="0001"
+                        NumeroConta = Convert.ToInt32(p.DocumentoPessoa.Substring(0, 5)),
+                        DataAbertura = DateTime.Now,
+                        IdPessoa = p.IdPessoa,
+                        NumeroAgencia = "0001"
 
                     };
                     _context.Add(contaBancaria);
@@ -55,13 +55,13 @@ namespace BancoCunha.Controllers
                     //Adicionando o saldo inicial
                     var saldo = new SaldoPessoa()
                     {
-                        ValorSaldo=1000,
-                        IdConta = contaBancaria.IdConta,
-                        IdPessoa = p.IdPessoa,
-                        NumeroAgencia = contaBancaria.NumeroAgencia,
-                        NumeroConta = contaBancaria.NumeroConta
-                       
-                        
+                        ValorSaldo      = 1000,
+                        IdConta         = contaBancaria.IdConta,
+                        IdPessoa        = p.IdPessoa,
+                        NumeroAgencia   = contaBancaria.NumeroAgencia,
+                        NumeroConta     = contaBancaria.NumeroConta
+
+
                     };
                     _context.Add(saldo);
                     await _context.SaveChangesAsync();
@@ -70,7 +70,7 @@ namespace BancoCunha.Controllers
 
                     //Carregando os dados do Correntist e da Conta na VIEW
                     var conta = await _context.Conta.FirstOrDefaultAsync(m => m.IdPessoa == p.IdPessoa);
-                    
+
                     if (conta == null)
                     {
                         return NotFound();
@@ -83,16 +83,15 @@ namespace BancoCunha.Controllers
                         DataAbertura = conta.DataAbertura,
                         IdPessoa = p.IdPessoa,
                         NumeroAgencia = conta.NumeroAgencia,
-                     
+
                         Pessoa = new Pessoa
-                        {
-                            NomePessoa = p.NomePessoa,
-                            DocumentoPessoa = p.DocumentoPessoa,
-                            TipoPessoa = p.TipoPessoa,
+                        (
+                             p.NomePessoa,
+                             p.DocumentoPessoa,
+                             p.TipoPessoa
 
+                        )
 
-                        }
-                    
                     };
 
                     return View("ContaCriada", pessoaConta);
@@ -107,8 +106,8 @@ namespace BancoCunha.Controllers
             {
                 return View("Error");
             }
-      
-          
+
+
         }
 
         [Route("Pessoa/AbrirConta")]

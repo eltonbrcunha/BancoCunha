@@ -35,27 +35,27 @@ namespace BancoCunha.Controllers
                             join s in _context.SaldoPessoa on p.IdPessoa equals s.IdPessoa
                             where c.NumeroAgencia == q && c.NumeroConta == y
                             select (new Conta
-                            {
+                            (
+                                
+                                 c.IdConta,
+                                 c.NumeroConta,
+                                 c.DataAbertura,
+                                 c.IdPessoa,
+                                 c.NumeroAgencia,
+                                 new Pessoa
+                                   (
+                                    p.NomePessoa,
+                                    p.DocumentoPessoa,
+                                    p.TipoPessoa
+                          
 
-                                IdConta = c.IdConta,
-                                NumeroConta = c.NumeroConta,
-                                DataAbertura = c.DataAbertura,
-                                IdPessoa = c.IdPessoa,
-                                NumeroAgencia = c.NumeroAgencia,
-
-                                Pessoa = new Pessoa
-                                {
-                                    NomePessoa = p.NomePessoa,
-                                    DocumentoPessoa = p.DocumentoPessoa,
-                                    TipoPessoa = p.TipoPessoa
-                                },
-
-                                SaldoPessoa = new SaldoPessoa
-                                {
-                                    ValorSaldo = s.ValorSaldo
-
-                                }
-                            });
+                                 ),                            
+                                 new SaldoPessoa
+                                 {
+                                    ValorSaldo=s.ValorSaldo
+                                 }
+                                
+                            ));
 
             if (await innerjoin.AnyAsync())
             {
@@ -108,9 +108,9 @@ namespace BancoCunha.Controllers
                              NumeroAgencia = c.NumeroAgencia,
 
                              Pessoa = new Pessoa
-                             {
-                                 NomePessoa = p.NomePessoa,
-                             },
+                             (
+                                p.NomePessoa
+                             ),
                          }).First().ToString();
 
             if (result.Any())

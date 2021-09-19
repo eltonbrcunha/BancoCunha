@@ -3,7 +3,29 @@ namespace BancoCunha.Models
 {
     public class Pessoa
     {
-        [Key]
+        public Pessoa()
+        {
+
+        }
+
+
+        public Pessoa(string nomePessoa, string documentoPessoa, string tipoPessoa)
+        {
+           
+
+            NomePessoa = nomePessoa;
+            DocumentoPessoa = documentoPessoa;
+            TipoPessoa = tipoPessoa;
+         
+           
+        }
+        public Pessoa(string nomePessoa)
+        {
+         NomePessoa=  nomePessoa;
+
+        }
+
+       [Key]
         public int IdPessoa { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório")]

@@ -5,8 +5,25 @@ namespace BancoCunha.Models
 {
     public class SaldoPessoa
 
-
     {
+        public SaldoPessoa()
+        {
+
+
+        }
+
+
+        public SaldoPessoa(Pessoa pessoa, int idPessoa, Conta conta, int idConta, int numeroConta, string numeroAgencia, decimal valorSaldo)
+        {
+            Pessoa = pessoa;
+            IdPessoa = idPessoa;
+            Conta = conta;
+            IdConta = idConta;
+            NumeroConta = numeroConta;
+            NumeroAgencia = numeroAgencia;
+            ValorSaldo = valorSaldo;
+        }
+
         [Key]
         public int IdSaldo { get; set; }
 

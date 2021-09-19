@@ -26,11 +26,6 @@
 
         </div>
 
-        <div class="form-group">
-
-            <input asp-for="TipoPessoa" class="form-control" placeholder="P. Física">
-
-        </div>
 
         <button class="btn btn-primary btn-block" type="submit" href="@Url.Action("AbrirConta", "Conta")">
             Continuar
@@ -51,28 +46,3 @@
 
     }
 }
-@*<h2>Films</h2>
-    <table class="table">
-        <tr>
-            <th>Film ID</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Release Year</th>
-            <th>Length</th>
-            <th>Rating</th>
-        </tr>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.idbanco)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.codbanco)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.nomebanco)
-                </td>
-                     </tr>
-        }
-    </table>*@
