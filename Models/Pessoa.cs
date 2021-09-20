@@ -11,21 +11,21 @@ namespace BancoCunha.Models
 
         public Pessoa(string nomePessoa, string documentoPessoa, string tipoPessoa)
         {
-           
+
 
             NomePessoa = nomePessoa;
             DocumentoPessoa = documentoPessoa;
             TipoPessoa = tipoPessoa;
-         
-           
+
+
         }
         public Pessoa(string nomePessoa)
         {
-         NomePessoa=  nomePessoa;
+            NomePessoa = nomePessoa;
 
         }
 
-       [Key]
+        [Key]
         public int IdPessoa { get; set; }
 
         [Required(ErrorMessage = "O nome é obrigatório")]

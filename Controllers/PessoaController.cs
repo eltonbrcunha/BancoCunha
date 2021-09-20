@@ -65,7 +65,7 @@ namespace BancoCunha.Controllers
                     };
                     _context.Add(saldo);
                     await _context.SaveChangesAsync();
-                    //Adicionando o saldo inicial
+              
 
 
                     //Carregando os dados do Correntist e da Conta na VIEW
@@ -95,7 +95,6 @@ namespace BancoCunha.Controllers
                     };
 
                     return View("ContaCriada", pessoaConta);
-                    //Carregando os dados do Correntist e da Conta na VIEW
                 }
                 catch (Exception ex)
                 {

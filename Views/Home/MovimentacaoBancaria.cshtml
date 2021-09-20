@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<BancoCunha.Models.Conta>
+@using Microsoft.AspNetCore.Http
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
 
 
 @{
@@ -6,38 +8,38 @@
 }
 <link rel="stylesheet" href="~/css/cartao.css" />
 
+        <div class="login-dark">
+            <form method="post">
+                <h2 class="sr-only">Login Form</h2>
+                <div style="text-align:center">
+
+                    <h4>Transferência Bancária</h4>
+                    <div class="illustration"> <img src="~/img/transfer.png" /></div>
+                </div>
+                <div class="form-group"><input class="form-control" id="numAgencia" name="numAgencia" placeholder="Agência"></div>
+                <div class="form-group"><input class="form-control" id="numConta" name="numConta" placeholder="Conta"></div>
+
+                @if (Model != null)
+                {
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="form-group"> @Html.DisplayFor(modelItem => item.Pessoa.NomePessoa) </div>
+
+                    }
+
+                }
+
+                <div class="form-group"><input class="form-control" id="valorMovimentacao" name="valorMovimentacao" placeholder="Valor Transferência"></div>
+
+                <div class="form-group">
+
+                    <input class="btn btn-primary btn-block" vale="Pesquisar" type="submit" />
+
+                </div>
 
 
-<div>Transferência Bancária</div>
+            </form>
 
-<div class="login-dark">
-    <form method="post">
-        <h2 class="sr-only">Login Form</h2>
-        <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-        <div class="form-group"><input class="form-control" id="numAgencia" name="numAgencia" placeholder="Agência"></div>
-        <div class="form-group"><input class="form-control" id="numConta" name="numConta" placeholder="Conta"></div>
-
-        @if (Model != null)
-        {
-
-            @foreach (var item in Model)
-            {
-                <div class="form-group"> @Html.DisplayFor(modelItem => item.Pessoa.NomePessoa) </div>
-
-            }
-
-        }
-       
-        <div class="form-group"><input class="form-control" id="valorMovimentacao" name="valorMovimentacao" placeholder="Valor Transferência"></div>
-
-        <div class="form-group">
-
-            <input class="btn btn-primary btn-block" vale="Pesquisar" type="submit" />
 
         </div>
-
-
-    </form>
-
-
-</div>

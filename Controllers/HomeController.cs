@@ -7,6 +7,11 @@ using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
 using System.Linq;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Text;
 
 namespace BancoCunha.Controllers
 {
@@ -28,6 +33,9 @@ namespace BancoCunha.Controllers
         [HttpPost]
         public async Task<IActionResult> Index(string q, int y)
         {
+            //Guardando na sessão Agência e Conta
+            HttpContext.Session.SetString("SessionAgencia",q);
+            HttpContext.Session.SetInt32("SessionConta", y);
 
 
             var innerjoin = from p in _context.Pessoa
@@ -56,9 +64,28 @@ namespace BancoCunha.Controllers
                                  }
                                 
                             ));
-
+                             
             if (await innerjoin.AnyAsync())
             {
+
+                //Consumir a API de envio de e-mail
+                //string URI = "https://localhost:44324/api/email/send";
+                //Email email = new Email();
+                //email.ToEmail = "eltonbrcunha@gmail.com";
+                //email.Subject = "Consumindo API";
+                //email.Body = "Consumido com sucesso";
+
+                //using (var client = new HttpClient())
+                //{
+                //    var serializedProduto = JsonConvert.SerializeObject(email);
+                //    var content = new StringContent(serializedProduto, Encoding.UTF8, "application/json");
+                //    var result = await client.PostAsync(URI, content);
+                //}
+
+
+
+                HttpContext.Session.SetString("SessionUser", JsonConvert.SerializeObject(innerjoin));
+
                 return View("ClienteLogado", innerjoin.ToList());
             }
             else
