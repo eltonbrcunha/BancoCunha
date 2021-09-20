@@ -43,6 +43,13 @@ adicional para reprodução do banco completo, com <strong>triggers e procedures
 - Arquitetura SOLID </br>
 - Design Patterns </br>
 
+<h2>Atualizações</h2>
+[20/09/2021] Update003
+- Adição de API para envio de email
+- Atualização de layout para adaptação de imagens e labels
+- Aplicação de Clean Code para melhorar a legibilidade do código.
+
+
 <h2>Melhorias a serem feitas</h2>
 :exclamation: Adicionar formas de pagamentos, como forma de fazer a movimentação do saldo bancário </br>
 :exclamation: Apresentar a confirmação dos dados da conta de destino antes da transferência </br>
