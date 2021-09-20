@@ -45,9 +45,9 @@ adicional para reprodução do banco completo, com <strong>triggers e procedures
 
 <h2>Atualizações</h2>
 [20/09/2021] Update003
-- Adição de API para envio de email
-- Atualização de layout para adaptação de imagens e labels
-- Aplicação de Clean Code para melhorar a legibilidade do código.
+- Adição de API para envio de email </br>
+- Atualização de layout para adaptação de imagens e labels </br>
+- Aplicação de Clean Code para melhorar a legibilidade do código. </br>
 
 
 <h2>Melhorias a serem feitas</h2>
